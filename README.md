@@ -62,7 +62,7 @@ Click yes to begin provisioning
 When the terraform deployment is complete, make sure you can reach the EKS cluster with:
 
 ```bash
-$ aws eks describe-cluster --name demo --region eu-west-1 --query cluster.resourcesVpcConfig
+$ aws eks --region eu-west-1 update-kubeconfig --name demo
 #This command is based on my tf files, If you changed the cluster name and region in the tf files, make sure to update this command
 ```
 
