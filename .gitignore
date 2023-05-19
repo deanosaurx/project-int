@@ -1,2 +1,4 @@
 infra/.*
 infra/terraform.*
+app/backend/node_modules
+app/frontend/node_modules
