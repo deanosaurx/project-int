@@ -97,9 +97,24 @@ If everything went correctly, you should see an ingress controller loadbalancer 
 $ kubectl get svc -n todo-app
 ```
 
-Example uutput
+Example output
 
 ```bash
 $ NAME                        TYPE          CLUSTER-IP   EXTERNAL-IP                                      PORT(S)
- nginx-ingress-controller     LoadBalancer  172.20....   <your-address>..eu-west-1.elb.amazonaws.com      80, 443
+ nginx-ingress-controller     LoadBalancer  172.20....   <lb name in aws>.eu-west-1.elb.amazonaws.com      80, 443
 ```
+
+Verify that the ingress we created with the yaml manifest (7-ingress.yaml) is attached to the ingress controller
+
+```bash
+$ kubectl get ingress -n todo-app
+```
+
+Example output
+
+```bash
+$ NAME      CLASS   HOSTS                ADDRESSP                                      PORT(S)
+  ingress   <none>  cicd.deanosaur.com  <lb name in aws>.eu-west-1.elb.amazonaws.com    80
+```
+
+- Note: If the attachment is successful, you will see that the host we provided in the ingress yaml file is mapped to the nginx-ingress-contoller svc
