@@ -79,13 +79,13 @@ $ NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
  kubernetes   ClusterIP   172.20.0.1   <none>        443/TCP   107m
 ```
 
-cd to infra/k8s folder and run
+cd to charts/helm-mernapp and install the helm chart
 
 ```bash
-$ kubectl apply -f .
+$ helm install .
 ```
 
-After provisioning, install the ingress controller
+After installing the app helm chart, install the ingress controller
 
 ```bash
 $ helm install nginx-ingress nginx-stable/nginx-ingress --set rbac.create=true --namespace todo-app
@@ -140,5 +140,6 @@ $ kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 You should be able to access ArgoCD through your localhost on http://localhost:8080
 
-Deployment overview:
+After syncing your app in ArgoCD, you should be able to see the app overview:
+
 ![](app/images/app-details.png)
