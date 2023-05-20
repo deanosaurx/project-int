@@ -118,3 +118,27 @@ $ NAME      CLASS   HOSTS                ADDRESSP                               
 ```
 
 - Note: If the attachment is successful, you will see that the host we provided in the ingress yaml file is mapped to the nginx-ingress-contoller svc
+
+Install ArgoCD
+
+```bash
+$ kubectl create namespace argocd
+$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+If you want to expose ArgoCD with external IP so you can access the API from the internet:
+
+```bash
+$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+```
+
+I prefer to access ArgoCD without exposing it using port-forwarding:
+
+```bash
+$ kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
+You should be able to access ArgoCD through your localhost on http://localhost:8080
+
+Deployment overview:
+![](app/images/app-details.png)
