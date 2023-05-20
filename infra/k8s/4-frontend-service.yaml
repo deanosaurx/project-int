@@ -8,5 +8,5 @@ spec:
     - port: 80
       targetPort: 3001
   selector:
-    app: fontend
+    app: frontend
   type: ClusterIP

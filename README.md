@@ -78,3 +78,28 @@ Example output:
 $ NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
  kubernetes   ClusterIP   172.20.0.1   <none>        443/TCP   107m
 ```
+
+cd to infra/k8s folder and run
+
+```bash
+$ kubectl apply -f .
+```
+
+After provisioning, install the ingress controller
+
+```bash
+$ helm install nginx-ingress nginx-stable/nginx-ingress --set rbac.create=true --namespace todo-app
+```
+
+If everything went correctly, you should see an ingress controller loadbalancer service:
+
+```bash
+$ kubectl get svc -n todo-app
+```
+
+Example uutput
+
+```bash
+$ NAME                        TYPE          CLUSTER-IP   EXTERNAL-IP                                      PORT(S)
+ nginx-ingress-controller     LoadBalancer  172.20....   <your-address>..eu-west-1.elb.amazonaws.com      80, 443
+```
