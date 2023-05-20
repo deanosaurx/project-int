@@ -2,7 +2,7 @@
 
 This project builds a complete Amazon EKS cluster with Terraform the CI will be handled by Jenkins and CD will be handled by ArgoCD.
 
-![](images/eks-cicd-codebuild.png)
+![](app/images/todo-app.png)
 
 ## Stack I'll be using
 
