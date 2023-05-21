@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: todo-app
-  name: frontend-service
+  namespace: "{{.Values.appNamespace }}"
+  name: "{{ .Values.serviceKind.frontend }}"
 spec:
   ports:
     - port: 80

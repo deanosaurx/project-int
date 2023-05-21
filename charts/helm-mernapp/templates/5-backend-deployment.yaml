@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: todo-app
+  namespace: "{{ .Values.appNamespace }}"
   labels:
-    app: backend
+    app: "{{ .Values.deploymentKind.backend }}"
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: backend
+      app: "{{ .Values.deploymentKind.backend }}"
   template:
     metadata:
       labels:
-        app: backend
+        app: "{{ .Values.deploymentKind.backend }}"
     spec:
       containers:
-        - name: backend
+        - name: "{{ .Values.deploymentKind.backend }}"
           image: deanosaurx/backend:v1.0.1
           ports:
             - containerPort: 8000

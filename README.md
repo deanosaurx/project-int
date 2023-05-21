@@ -132,7 +132,7 @@ If you want to expose ArgoCD with external IP so you can access the API from the
 $ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
-I prefer to access ArgoCD without exposing it using port-forwarding:
+If you don't want to expose ArgoCD to the outside world, you can use port-forwarding
 
 ```bash
 $ kubectl port-forward svc/argocd-server -n argocd 8080:443

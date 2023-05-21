@@ -1,0 +1,11 @@
+appNamespace: todo-app
+
+appName: todo-app
+
+serviceKind:
+  frontend: frontend-service
+  backend: backend-service
+
+deploymentKind:
+  frontend: frontend
+  backend: backend

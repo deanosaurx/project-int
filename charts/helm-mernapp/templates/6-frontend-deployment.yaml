@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
-  namespace: todo-app
+  name: "{{ .Values.deploymentKind.frontend }}"
+  namespace: "{{ .Values.appNamespace}}"
   labels:
-    app: frontend
+    app: "{{ .Values.deploymentKind.frontend }}"
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: frontend
+      app: "{{ .Values.deploymentKind.frontend }}"
   template:
     metadata:
       labels:
-        app: frontend
+        app: "{{ .Values.deploymentKind.frontend }}"
     spec:
       containers:
-        - name: frontend
+        - name: "{{ .Values.deploymentKind.frontend }}"
           image: deanosaurx/frontend:v1.0.8
           ports:
             - containerPort: 3001
