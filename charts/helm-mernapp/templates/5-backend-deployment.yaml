@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: "{{ .Values.deploymentKind.backend }}"
-          image: deanosaurx/backend:v1.0.1
+          image: "{{ .Values.imageName.backend }}:{{ .Values.imageTag.backend }}"
           ports:
             - containerPort: 8000
           env:

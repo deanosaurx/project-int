@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: "{{ .Values.deploymentKind.frontend }}"
-          image: deanosaurx/frontend:v1.0.8
+          image: "{{ .Values.imageName.frontend }}:{{ .Values.imageTag.frontend }}"
           ports:
             - containerPort: 3001

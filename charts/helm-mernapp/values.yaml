@@ -9,3 +9,11 @@ serviceKind:
 deploymentKind:
   frontend: frontend
   backend: backend
+
+imageName:
+  frontend: deanosaurx/frontend
+  backend: deanosaurx/backend
+
+imageTag:
+  frontend: v1.0.8
+  backend: v1.0.1
