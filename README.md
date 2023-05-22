@@ -143,3 +143,18 @@ You should be able to access ArgoCD through your localhost on http://localhost:8
 After syncing your app in ArgoCD, you should be able to see the app overview:
 
 ![](app/images/app-details.png)
+
+Jenkins requires to be installed on a specific node.
+Remember to update the node selector after you labeled one of the nodes
+Example:
+
+```bash
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: node01
+          operator: In
+          values:
+          - ip-10-0-13-24
+```
