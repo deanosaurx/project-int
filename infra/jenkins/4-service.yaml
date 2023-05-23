@@ -13,4 +13,8 @@ spec:
   type: LoadBalancer
   ports:
     - port: 8080
+      name: httpport
       targetPort: 8080
+    - port: 50000
+      targetPort: 50000
+      name: jnlpport
