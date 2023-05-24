@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ .helm.deploymentKind.frontend }}"
+  name: "{{ .Values.deploymentKind.frontend }}"
   labels:
-    app: "{{ .helm.deploymentKind.frontend }}"
+    app: "{{ .Values.deploymentKind.frontend }}"
 spec:
-  replicas: 5
+  replicas: "{{ .Values.replicaCount }}"
   selector:
     matchLabels:
-      app: "{{ .helm.deploymentKind.frontend }}"
+      app: "{{ .Values.deploymentKind.frontend }}"
   template:
     metadata:
       labels:
-        app: "{{ .helm.deploymentKind.frontend }}"
+        app: "{{ .Values.deploymentKind.frontend }}"
     spec:
       containers:
-        - name: "{{ .helm.deploymentKind.frontend }}"
-          image: "{{ .helm.parameters[2].value }}:{{ .helm.parameters[3].value }}"
+        - name: "{{ .Values.deploymentKind.frontend }}"
+          image: "{{ .Values.frontend-image.repository }}:{{ .Values.frontend-image.tag }}"
           ports:
             - containerPort: 3001
