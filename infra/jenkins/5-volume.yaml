@@ -29,7 +29,7 @@ spec:
             - key: node01
               operator: In
               values:
-                - ip-10-0-9-43
+                - jenkins
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
