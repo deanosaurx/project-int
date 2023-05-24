@@ -1,14 +1,22 @@
 helm:
   parameters:
-  - name: imageTag.backend
-    value: 1.0.13
-    forcestring: false
-  - name: imageTag.frontend
-    value: 1.0.13
-    forcestring: false
-  - name: image.name
-    value: deanosaurx/frontend
-    forcestring: true
-  - name: image.tag
-    value: 1.0.13
-    forcestring: true
+    - name: imageTag.backend
+      value: 1.0.13
+      forcestring: false
+    - name: imageTag.frontend
+      value: 1.0.13
+      forcestring: false
+    - name: frontend.Image
+      value: deanosaurx/frontend
+      forcestring: false
+    - name: backend.Image
+      value: deanosaurx/backend
+      forcestring: true
+    - appNamespace: todo-app
+    - appName: todo-app
+    - serviceKind:
+        frontend: frontend-service
+        backend: backend-service
+    - deploymentKind:
+        frontend: frontend
+        backend: backend
