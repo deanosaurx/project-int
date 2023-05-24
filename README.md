@@ -8,9 +8,11 @@ This project builds a complete Amazon EKS cluster with Terraform the CI will be 
 
 - [x] **Terraform**
 - [x] **EKS**
+- [x] **Docker**
 - [x] **Jenkins**
 - [x] **Helm**
 - [x] **ArgoCD**
+- [x] **Image updater**
 
 ## Pre-requisities
 
