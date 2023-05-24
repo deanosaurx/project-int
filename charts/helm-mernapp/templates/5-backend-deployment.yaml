@@ -5,7 +5,7 @@ metadata:
   labels:
     app: "{{ .Values.deploymentKind.backend }}"
 spec:
-  replicas: "{{ .Values.replicaCount }}"
+  replicas: 5
   selector:
     matchLabels:
       app: "{{ .Values.deploymentKind.backend }}"
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: "{{ .Values.deploymentKind.backend }}"
-          image: "{{ .Values.backend-image.repository }}:{{ .Values.backend-image.tag }}"
+          image: "{{ .Values.image.frontend.repository }}:{{ .Values.image.backend.tag }}"
           ports:
             - containerPort: 8000
           env:
