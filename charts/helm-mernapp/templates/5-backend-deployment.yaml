@@ -15,8 +15,8 @@ spec:
         app: "{{ .Values.deploymentKind.backend }}"
     spec:
       containers:
-        - name: "{{ .Values.backend-Image }}"
-          image: "{{ .Values.backend-Image }}:{{ .Values.imageTag-backend }}"
+        - name: "{{ .Values.deploymentKind.backend }}"
+          image: "{{ .Values.imageName.backend }}:{{ .Values.imageTag.backend }}"
           ports:
             - containerPort: 8000
           env:

@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: "{{ .Values.deploymentKind.frontend }}"
-          image: "{{ .Values.frontend-Image }}:{{ .Values.imageTag-frontend }}"
+          image: "{{ .Values.imageName.frontend }}:{{ .Values.imageTag.frontend }}"
           ports:
             - containerPort: 3001
