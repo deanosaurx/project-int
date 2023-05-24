@@ -2,7 +2,7 @@
 
 This project builds a complete Amazon EKS cluster with Terraform the CI will be handled by Jenkins and CD will be handled by ArgoCD.
 
-![](app/images/todo-app.png)
+![](app/images/CICD-pipeline.png)
 
 ## Stack I'll be using
 
@@ -117,6 +117,10 @@ $ NAME      CLASS   HOSTS                ADDRESSP                               
   ingress   <none>  cicd.deanosaur.com  <lb name in aws>.eu-west-1.elb.amazonaws.com    80
 ```
 
+App should be installed and exposed to the world
+
+![](app/images/todo-app.png)
+
 - Note: If the attachment is successful, you will see that the host we provided in the ingress yaml file is mapped to the nginx-ingress-contoller svc
 
 Install ArgoCD
@@ -143,20 +147,3 @@ You should be able to access ArgoCD through your localhost on http://localhost:8
 After syncing your app in ArgoCD, you should be able to see the app overview:
 
 ![](app/images/app-details.png)
-
-Jenkins requires to be installed on a specific node.
-Remember to update the node selector after you labeled one of the nodes
-Example:
-
-```bash
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: node01
-          operator: In
-          values:
-          - ip-10-0-13-24
-```
-
-testing
