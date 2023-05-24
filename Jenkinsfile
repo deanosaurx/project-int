@@ -44,6 +44,7 @@ pipeline {
                 }
                 buildBackendImage()
             }
+        }
 
         stage('Clean up Docker images') {
             steps {
@@ -57,4 +58,3 @@ pipeline {
         }
       }
     }
-}
