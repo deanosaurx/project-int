@@ -16,12 +16,10 @@ deploymentKind:
 
 backend-image:
   repository: deanosaurx/backend
-  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: 1.0.26
 
 frontend-image:
   repository: deanosaurx/frontend
-  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: 1.0.26
