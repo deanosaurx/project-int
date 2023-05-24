@@ -8,10 +8,10 @@ deploymentKind:
   frontend: frontend
   backend: backend
 
-imageName:
+image.name:
   frontend: deanosaurx/frontend
   backend: deanosaurx/backend
 
-imageTag:
+image.tag:
   frontend: 1.0.26
   backend: 1.0.26
