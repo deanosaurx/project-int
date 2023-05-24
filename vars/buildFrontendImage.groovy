@@ -1,6 +1,6 @@
 def call() {
     script {
-        sh 'docker build -t ${FRONTEND_IMAGE_NAME} ./app/backend'
+        sh 'docker build -t ${FRONTEND_IMAGE_NAME} ./app/frontend'
         sh 'docker tag $FRONTEND_IMAGE_NAME ${DOCKER_REGISTRY}/${FRONTEND_IMAGE_NAME}:1.0.${IMAGE_TAG}'
         sh 'docker tag $FRONTEND_IMAGE_NAME ${DOCKER_REGISTRY}/${FRONTEND_IMAGE_NAME}:latest'
         withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
