@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: "{{ .Values.appNamespace }}"
   labels:
     app: "{{ .Values.deploymentKind.backend }}"
 spec:
