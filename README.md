@@ -155,3 +155,54 @@ $ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.p
 After syncing your app in ArgoCD, you should be able to see the app overview:
 
 ![](app/images/app-details.png)
+
+Now install ArgoCD image updater in order to sync the images from your image repo automatically
+
+```bash
+$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argocd-image-updater/stable/manifests/install.yaml
+```
+
+Create a secret with github credentials:
+
+```bash
+$ kubectl -n argocd \
+    create secret generic git-creds \
+    --from-literal=username=$GITHUB_USER \
+    --from-literal=password=$GITHUB_TOKEN
+```
+
+Update the ArgoCD Application manifest:
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todo-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: deanosaurx/backend, deanosaurx/frontend
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    argocd-image-updater.argoproj.io/git-branch: main
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/deanosaurx/project-int.git"
+    path: charts/helm-mernapp
+    targetRevision: HEAD
+  destination:
+    server: "https://kubernetes.default.svc"
+  syncPolicy:
+    automated: {}
+```
+
+You can apply it with kubectl:
+
+```bash
+$ kubectl apply -f application.yaml
+```
+
+If you didn't everything correctly, you should see image updater doing it's magic in the pod logs:
+
+![](app/images/argocd_image_updater.png)
