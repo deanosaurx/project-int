@@ -24,7 +24,7 @@ pipeline {
     stages {
         stage('Build Frontend Image') {
             when {
-                changeset "frontend/**"
+                changeset "app/frontend/**"
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
@@ -36,7 +36,7 @@ pipeline {
 
         stage('Build Backend Image') {
             when {
-                changeset "backend/**"
+                changeset "app/backend/**"
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
