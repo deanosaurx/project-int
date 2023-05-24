@@ -13,5 +13,5 @@ imageName:
   backend: deanosaurx/backend
 
 imageTag:
-  frontend: 1.0.13
-  backend: 1.0.13
+  frontend: 1.0.26
+  backend: 1.0.26
