@@ -144,6 +144,14 @@ $ kubectl port-forward svc/argocd-server -n argocd 8080:443
 
 You should be able to access ArgoCD through your localhost on http://localhost:8080
 
+Credentials for ArgoCD:
+Username: Admin
+The password can be found with this command:
+
+```bash
+$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
+
 After syncing your app in ArgoCD, you should be able to see the app overview:
 
 ![](app/images/app-details.png)
