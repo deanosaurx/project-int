@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", Routes);
 
 Connection();
+
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
