@@ -5,9 +5,11 @@
 replicaCount: 5
 
 appName: todo-app
-  serviceKind:
-    frontend: frontend-service
-    backend: backend-service
+
+serviceKind:
+  frontend: frontend-service
+  backend: backend-service
+
 deploymentKind:
   frontend: frontend
   backend: backend
@@ -27,15 +29,6 @@ frontend-image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
 
 podAnnotations: {}
 
