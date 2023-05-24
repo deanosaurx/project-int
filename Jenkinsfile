@@ -23,9 +23,9 @@ pipeline {
 
     stages {
         stage('Build Frontend Image') {
-            // when {
-            //     changeset "app/frontend/**"
-            // }
+            when {
+                changeset "app/frontend/**"
+            }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
                 sh "docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD"
@@ -35,9 +35,9 @@ pipeline {
         }
 
         stage('Build Backend Image') {
-            // when {
-            //     changeset "app/backend/**"
-            // }
+            when {
+                changeset "app/backend/**"
+            }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'DOCKER_HUB', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
                 sh "docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD"
