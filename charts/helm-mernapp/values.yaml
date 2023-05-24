@@ -1,17 +1,22 @@
-appName: todo-app
-
-serviceKind:
-  frontend: frontend-service
-  backend: backend-service
-
-deploymentKind:
-  frontend: frontend
-  backend: backend
-
-imageName:
-  frontend: deanosaurx/frontend
-  backend: deanosaurx/backend
-
-imageTag:
-  frontend: 1.0.13
-  backend: 1.0.13
+helm:
+  parameters:
+    - name: imageTag.backend
+      value: 1.0.13
+      forcestring: false
+    - name: imageTag.frontend
+      value: 1.0.13
+      forcestring: false
+    - name: frontend.Image
+      value: deanosaurx/frontend
+      forcestring: false
+    - name: backend.Image
+      value: deanosaurx/backend
+      forcestring: true
+    - appNamespace: todo-app
+    - appName: todo-app
+    - serviceKind:
+        frontend: frontend-service
+        backend: backend-service
+    - deploymentKind:
+        frontend: frontend
+        backend: backend
