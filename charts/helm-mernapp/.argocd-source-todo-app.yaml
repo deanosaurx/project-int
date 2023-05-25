@@ -1,7 +1,7 @@
 helm:
   parameters:
   - name: image.name
-    value: deanosaurx/backend
+    value: deanosaurx/frontend
     forcestring: true
   - name: image.tag
     value: 1.0.41
