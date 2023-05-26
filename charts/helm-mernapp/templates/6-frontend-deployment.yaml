@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ .Values.deploymentKind.frontend }}"
+  name: "{{ .Values.frontend.deploy.name }}"
   labels:
-    app: "{{ .Values.deploymentKind.frontend }}"
+    app: "{{ .Values.frontend.deploy.name }}"
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: "{{ .Values.deploymentKind.frontend }}"
+      app: "{{ .Values.frontend.labels.app }}"
   template:
     metadata:
       labels:
-        app: "{{ .Values.deploymentKind.frontend }}"
+        app: "{{ .Values.frontend.deploy.name }}"
     spec:
       containers:
-        - name: "{{ .Values.deploymentKind.frontend }}"
-          image: "{{ .Values.image.frontend.repository }}:{{ .Values.image.frontend.tag }}"
+        - name: "{{ .Values.frontend.deploy.name }}"
+          image: "{{ .Values.frontend.deploy.containers.image }}:{{ .Values.backend.deploy.containers.tag }}"
           ports:
-            - containerPort: 3001
+            - containerPort: "{{ .Values.frontend.deploy.containers.ports.containerPort }}"

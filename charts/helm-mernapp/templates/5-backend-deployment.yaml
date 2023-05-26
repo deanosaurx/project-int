@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: "{{ .Values.backend.deploy.name }}"
   labels:
-    app: "{{ .Values.deploymentKind.backend }}"
+    app: "{{ .Values.backend.deploy.name }}"
 spec:
   replicas: 5
   selector:
     matchLabels:
-      app: "{{ .Values.deploymentKind.backend }}"
+      app: "{{ .Values.backend.labels.app }}"
   template:
     metadata:
       labels:
-        app: "{{ .Values.deploymentKind.backend }}"
+        app: "{{ .Values.backend.deploy.name }}"
     spec:
       containers:
-        - name: "{{ .Values.deploymentKind.backend }}"
-          image: "{{ .Values.image.backend.repository }}:{{ .Values.image.backend.tag }}"
+        - name: "{{ .Values.backend.deploy.name }}"
+          image: "{{ .Values.backend.deploy.containers.image }}:{{ .Values.backend.deploy.containers.tag }}"
           ports:
-            - containerPort: 8000
+            - containerPort: "{{ .Values.backend.deploy.containers.ports.containerPort }}"
           env:
             - name: DB_USERNAME
               valueFrom:

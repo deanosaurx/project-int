@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{ .Values.serviceKind.frontend }}"
+  name: "{{ .Values.frontend.service.name }}"
 spec:
   ports:
-    - port: 80
-      targetPort: 3001
+    - port: "{{ .Values.frontend.service.ports.port }}"
+      targetPort: "{{ .Values.frontend.service.ports.targetPort }}"
   selector:
-    app: frontend
-  type: ClusterIP
+    app: "{{ .Values.frontend.deploy.name }}"
+  type: "{{ .Values.frontend.service.type }}"

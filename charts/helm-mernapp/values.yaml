@@ -1,23 +1,48 @@
-# Default values for helm-mernapp.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
+frontend:
+  labels:
+    app: frontend
 
-replicaCount: "5"
+  deploy:
+    name: frontend
+    replicas: 5
+    containers:
+      name: frontend
+      imagePullPolicy: IfNotPresent
+      image: deanosaurx/frontend
+      tag: 1.0.26
+      ports:
+        containerPort: 3001
 
-appName: todo-app
+  service:
+    name: frontend-service
+    type: ClusterIP
+    labels:
+      app: frontend
+    ports:
+      port: 80
+      targetPort: 3001
 
-serviceKind:
-  frontend: frontend-service
-  backend: backend-service
+backend:
+  labels:
+    app: backend
 
-deploymentKind:
-  frontend: frontend
-  backend: backend
+  deploy:
+    name: backend
+    replicas: 5
+    containers:
+      name: backend
+      imagePullPolicy: IfNotPresent
+      image: deanosaurx/backend
+      tag: 1.0.26
+      ports:
+        containerPort: 8000
 
-image:
-  backend:
-    repository: deanosaurx/backend
-    tag: 1.0.26
-  frontend:
-    repository: deanosaurx/frontend
-    tag: 1.0.26
+  service:
+    name: backend-service
+    type: ClusterIP
+    labels:
+      app: backend
+    ports:
+      name: port-backend
+      port: 80
+      targetPort: 3001
