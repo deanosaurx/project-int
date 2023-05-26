@@ -6,11 +6,11 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd-image-updater.argoproj.io/image-list: frontendalias=deanosaurx/frontend:~1, backendalias=deanosaurx/backend:~1
-    argocd-image-updater.argoproj.io/frontendalias.helm.image-name: deanosaurx/frontend
-    argocd-image-updater.argoproj.io/frontendalias.helm.image-tag: 1.0.50
-    argocd-image-updater.argoproj.io/frontendalias.helm.image-name: deanosaurx/frontend
-    argocd-image-updater.argoproj.io/frontendalias.helm.image-tag: 1.0.48
+    argocd-image-updater.argoproj.io/image-list: frontend=deanosaurx/frontend, backend=deanosaurx/backend
+    argocd-image-updater.argoproj.io/frontend.mern-app.image.name: mern-app.image.name
+    argocd-image-updater.argoproj.io/frontend.mern-app.image.tag: mern-app.image.tag
+    argocd-image-updater.argoproj.io/backend.mern-app.image.name: mern-app.image.name
+    argocd-image-updater.argoproj.io/backend.mern-app.image.tag: mern-app.image.tag
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
     argocd-image-updater.argoproj.io/git-branch: main
 spec:
