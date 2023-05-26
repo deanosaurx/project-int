@@ -4,8 +4,8 @@ metadata:
   name: "{{ .Values.frontend.service.name }}"
 spec:
   ports:
-    - port: "{{ .Values.frontend.service.ports.port }}"
-      targetPort: "{{ .Values.frontend.service.ports.targetPort }}"
+    - port: 80
+      targetPort: 3001
   selector:
     app: "{{ .Values.frontend.deploy.name }}"
   type: "{{ .Values.frontend.service.type }}"

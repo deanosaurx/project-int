@@ -18,4 +18,4 @@ spec:
         - name: "{{ .Values.frontend.deploy.name }}"
           image: "{{ .Values.frontend.deploy.containers.image }}:{{ .Values.backend.deploy.containers.tag }}"
           ports:
-            - containerPort: "{{ .Values.frontend.deploy.containers.ports.containerPort }}"
+            - containerPort: 3001

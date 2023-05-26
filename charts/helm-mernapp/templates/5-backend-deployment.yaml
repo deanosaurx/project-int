@@ -18,7 +18,7 @@ spec:
         - name: "{{ .Values.backend.deploy.name }}"
           image: "{{ .Values.backend.deploy.containers.image }}:{{ .Values.backend.deploy.containers.tag }}"
           ports:
-            - containerPort: "{{ .Values.backend.deploy.containers.ports.containerPort }}"
+            - containerPort: 8000
           env:
             - name: DB_USERNAME
               valueFrom:
