@@ -1,0 +1,14 @@
+helm:
+  parameters:
+  - name: deanosaurx/frontend
+    value: deanosaurx/frontend
+    forcestring: true
+  - name: 1.0.48
+    value: 1.0.50
+    forcestring: true
+  - name: image.name
+    value: deanosaurx/backend
+    forcestring: true
+  - name: image.tag
+    value: 1.0.48
+    forcestring: true
