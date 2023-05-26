@@ -9,8 +9,8 @@ metadata:
     argocd-image-updater.argoproj.io/image-list: frontend=deanosaurx/frontend, backend=deanosaurx/backend
     argocd-image-updater.argoproj.io/frontend.mern-app.frontend.containers.image: frontend
     argocd-image-updater.argoproj.io/frontend.mern-app.image.tag: mern-app.image.tag
-    argocd-image-updater.argoproj.io/backend.mern-app.image.name: mern-app.image.name
-    argocd-image-updater.argoproj.io/backend.mern-app.image.tag: mern-app.image.tag
+    argocd-image-updater.argoproj.io/backend.mern-app.backend.containers.image: mern-app.backend.deploy.containers
+    argocd-image-updater.argoproj.io/backend.mern-app.backend.containers.tag: 1.0.25
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
     argocd-image-updater.argoproj.io/git-branch: main
 spec:
