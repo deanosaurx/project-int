@@ -1,7 +1,6 @@
 pipeline {
   agent {
     kubernetes {
-      label 'my-kubernetes-agent'
     }
   }
   stages {
@@ -14,6 +13,5 @@ pipeline {
         }
       }
     }
-    // Add more stages for deployment, testing, etc.
   }
 }
