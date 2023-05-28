@@ -5,4 +5,5 @@ podTemplate(containers: [containerTemplate(image: 'docker', name: 'docker', comm
           sh 'docker build -t myimage:latest .'
       }
     }
+    }
 }
