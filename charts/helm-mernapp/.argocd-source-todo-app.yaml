@@ -4,5 +4,5 @@ helm:
     value: deanosaurx/backend
     forcestring: true
   - name: image.tag
-    value: 1.0.62
+    value: latest
     forcestring: true
