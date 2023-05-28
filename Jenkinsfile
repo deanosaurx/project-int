@@ -10,7 +10,7 @@ pipeline {
                 spec:
                   containers:
                   - name: docker
-                    image: your-custom-docker-image
+                    image: docker
                     command:
                     - cat
                     tty: true
