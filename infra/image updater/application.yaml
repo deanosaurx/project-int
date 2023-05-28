@@ -6,7 +6,9 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd-image-updater.argoproj.io/image-list: deanosaurx/frontend:~1, deanosaurx/backend:~1
+    argocd-image-updater.argoproj.io/image-list: frontend=deanosaurx/frontend, backend=deanosaurx/backend
+    argocd-image-updater.argoproj.io/frontend.update-strategy: latest
+    argocd-image-updater.argoproj.io/backend.update-strategy: latest
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
     argocd-image-updater.argoproj.io/git-branch: main
 spec:
