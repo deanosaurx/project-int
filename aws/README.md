@@ -1,6 +1,6 @@
-# CI/CD GitOps Projet with EKS, Jenkins and ArgoCD.
+# CI/CD GitOps Projet with AWS services
 
-This project builds a complete Amazon EKS cluster with Terraform the CI will be handled by Jenkins and CD will be handled by ArgoCD.
+This is a CI/CD migration project to AWS
 
 ![](../app/images/AWS_GitOps.webp)
 
