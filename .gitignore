@@ -1,4 +1,6 @@
 infra/terraform/.*
 infra/terraform/terraform.*
+aws/terraform/.*
+infra/terraform/terraform.*
 app/backend/node_modules
 app/frontend/node_modules
