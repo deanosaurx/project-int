@@ -5,6 +5,10 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
+  tls:
+    - hosts:
+        - cicd.deanosaur.com
+      secretName: aws-acm-secret
   rules:
     - host: cicd.deanosaur.com
       http:
