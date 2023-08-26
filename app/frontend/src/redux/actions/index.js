@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { ADDNEW_TODO, GETALL_TODO, TOGGLE_TODO, UPDATE_TODO, DELETE_TODO, TOGGLE_TAB } from "./type";
 
-const API_URL = "http://cicd.deanosaur.com";
+const API_URL = "http://backend-service";
 
 export const addNewTodo = (data) => async (dispatch) => {
   try {
