@@ -4,7 +4,7 @@ frontend:
 
   deploy:
     name: frontend
-    replicas: 5
+    replicas: 2
     containers:
       name: frontend
       imagePullPolicy: IfNotPresent
@@ -28,7 +28,7 @@ backend:
 
   deploy:
     name: backend
-    replicas: 5
+    replicas: 2
     containers:
       name: backend
       imagePullPolicy: IfNotPresent
