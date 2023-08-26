@@ -9,7 +9,7 @@ frontend:
       name: frontend
       imagePullPolicy: IfNotPresent
       image: deanosaurx/frontend
-      tag: 1.0.26
+      tag: latest
       ports:
         containerPort: 3001
 
@@ -33,7 +33,7 @@ backend:
       name: backend
       imagePullPolicy: IfNotPresent
       image: deanosaurx/backend
-      tag: 1.0.26
+      tag: latest
       ports:
         containerPort: 8000
 
